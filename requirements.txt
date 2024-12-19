@@ -1,0 +1,6 @@
+flask
+gunicorn
+torch
+transformers
+langchain
+boto3
