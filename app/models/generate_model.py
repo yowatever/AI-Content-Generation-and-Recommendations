@@ -8,7 +8,7 @@ import os
 
 class ContentGenerator:
     def __init__(self, model_name="google/flan-t5-large", knowledge_base_path="data/training_data"):
-        self.embeddings = HuggingFaceEmbeddings()
+        self.embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.model = AutoModelForCausalLM.from_pretrained(model_name)
         self.vector_store = None
