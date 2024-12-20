@@ -1,16 +1,17 @@
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
-from langchain.llms import HuggingFaceHub
+from langchain_community.llms import HuggingFaceHub
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import os
+from transformers import AutoModelForSeq2SeqLM
 
 class ContentGenerator:
     def __init__(self, model_name="google/flan-t5-large", knowledge_base_path="data/training_data"):
         self.embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
         self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.model = AutoModelForCausalLM.from_pretrained(model_name)
+        self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
         self.vector_store = None
         self.knowledge_base_path = knowledge_base_path
         self.initialize_knowledge_base()
