@@ -1,6 +1,9 @@
 from flask import Flask, request, jsonify
 from app.models.generate_model import ContentGenerator
 from app.models.recommend_model import Recommender
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 app = Flask(__name__)
 generator = ContentGenerator()
