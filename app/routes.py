@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
-from .models.generate_model import ContentGenerator
-from .models.recommend_model import Recommender
+from app.models.generate_model import ContentGenerator
+from app.models.recommend_model import Recommender
 
 app = Flask(__name__)
 generator = ContentGenerator()
