@@ -22,6 +22,10 @@ def generate():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/')
+def home():
+    return "Welcome to the AI Content Generation and Recommendations API!"
+
 @app.route('/recommend', methods=['POST'])
 def recommend():
     try:
